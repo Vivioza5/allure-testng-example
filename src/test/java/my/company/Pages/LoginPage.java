@@ -1,31 +1,25 @@
-package my.company;
-
-import my.company.Pages.Chrome;
-import org.testng.annotations.Test;
-
-import static io.qameta.allure.Allure.step;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+package my.company.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-/**
- * @author baev (Dmitry Baev)
- */
-public class SimpleTest {
-WebDriver driver;
+import org.testng.annotations.Test;
+
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+public class LoginPage {
+    WebDriver driver;
 
     @BeforeTest
     public void setUp() throws IOException {
         driver = Chrome.getInstanceOfChrome();
     }
 
-
     @Test
-    public void simpleTestOne() {
-String login_url = "https://opensource-demo.orangehrmlive.com/";
+    public void login() {
+        String login_url = "https://opensource-demo.orangehrmlive.com/";
         driver.get(login_url);
 
         driver.manage().window().maximize();
@@ -34,15 +28,10 @@ String login_url = "https://opensource-demo.orangehrmlive.com/";
         driver.findElement(By.id("txtPassword")).sendKeys("admin123");
         System.out.println(driver.getTitle());
     }
-    @Test
-    public void simpleTestTwo() {
-        step("step 1");
-        step("step 2");
-    }
-        @AfterTest
+
+
+    @AfterTest
     public void tearDown() {
         driver.quit();
     }
-
 }
-
