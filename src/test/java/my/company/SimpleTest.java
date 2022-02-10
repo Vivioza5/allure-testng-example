@@ -11,9 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-/**
- * @author baev (Dmitry Baev)
- */
+
 public class SimpleTest {
 WebDriver driver;
 
